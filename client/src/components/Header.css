@@ -1,0 +1,31 @@
+li a{
+    color: white;
+    text-decoration: none;
+  }
+  
+  .active {
+    background-image: url('../assets/redUnderline.svg');
+  /* Задаем выравнивание изображения по центру нижней грани ссылки */
+  background-position: center bottom;
+  /* Задаем размер изображения (опционально) */
+  background-size: auto;
+  }
+  .container {
+    background-color: #000000;
+    padding-inline: 135px;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    font-size: calc(8px + 1vmin);
+    color: white;
+  }  
+  button{
+    size: 16px;
+    background-color: #fff;
+    border-radius: 7px;
+    height: 54px;
+    margin-left: 24px;
+    width: 132px;
+  }
