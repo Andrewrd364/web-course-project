@@ -19,7 +19,7 @@ export default function Header() {
       </div>
       <div style={{ display: 'flex' }}>
         <img src={basket} alt="Корзина" />
-        <button style={{fontFamily:'Mukta',fontWeight: 'bold', fontSize:'16px'}}>Booking now</button>
+        <button style={{fontFamily:Mukta,fontWeight: 'bold', fontSize:'16px'}}>Booking now</button>
       </div>
     </header>
   )

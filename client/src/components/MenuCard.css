@@ -1,0 +1,29 @@
+.containerCard {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.containerCard div {
+}
+
+.containerCard button {
+    width: 26px;
+    height: 24px;
+    border: 2px solid gray;
+    cursor: pointer;
+}
+
+.price {
+    color:red;
+}
+
+.counter {
+    margin-left: 12px;
+    width:80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

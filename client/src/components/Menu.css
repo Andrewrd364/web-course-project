@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Righteous';
+    src: local('Righteous'), url(../assets/fonts/Righteous-Regular.ttf) format('truetype');
+  }
+.headline{
+    font-size: 80px;
+    font-family: 'Righteous';
+    font-weight: 200;
+    text-transform: uppercase;
+
+}
