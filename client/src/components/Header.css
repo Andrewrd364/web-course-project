@@ -3,21 +3,21 @@ li a{
     text-decoration: none;
   }
   
-  .active {
+  /* .active {
     background-image: url('../assets/redUnderline.svg');
-  /* Задаем выравнивание изображения по центру нижней грани ссылки */
-  background-position: center bottom;
-  /* Задаем размер изображения (опционально) */
-  background-size: auto;
-  }
+    background-position: center bottom;
+    background-size: auto;
+  } */
   .container {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
     background-color: #000000;
-    padding-inline: 135px;
-    min-height: 10vh;
+    min-height: 90px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content:space-around;
     font-size: calc(8px + 1vmin);
     color: white;
   }  

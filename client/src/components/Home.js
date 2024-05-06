@@ -1,7 +1,7 @@
 import React from 'react'
 import bg1 from '../assets/backGround1.svg';
+import './Home.css'
 
-import Righteous from '../assets/fonts/Righteous-Regular.ttf'
 export default function Home() {
   return (
     <div style={{
@@ -12,17 +12,8 @@ export default function Home() {
         height: '120vh',
         position: 'relative',
       }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '60%',
-          height: '70%',
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'blur(10px)',
-          borderRadius: '0  0 200px 0',
-        }}>
-            <div style={{marginTop:'190px', display: 'inline-block', textAlign: 'center' }}>
+        <div className='glassEffect'>
+            <div className='textHome'>
                 <div style={{ textAlign: 'center' }}>
                     <p style={{lineHeight: '1',margin:0,fontSize:'168px', color:'white',fontFamily:'Righteous'}}>
                         KOREAN
