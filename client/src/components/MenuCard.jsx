@@ -44,7 +44,7 @@ export default function MenuCard({item}) {
                 {edition && 
                 <div className='addition'>
                     <div style={{color:'gray'}}>Nutritional value per 100g</div>
-                    <div>Energy value: {item.calories}kcal</div>
+                    <div>Calories: {item.calories}kcal</div>
                     <div>Proteins: {item.calories}g</div>
                     <div>Fats: {item.calories}g</div>
                     <div>Carbohydrates: {item.calories}g</div>

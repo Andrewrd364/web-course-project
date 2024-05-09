@@ -7,18 +7,18 @@ export default function Home() {
     <div style={{
         backgroundImage: `url(${bg1})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
         width: '100%',
         height: '120vh',
-        position: 'relative',
+        display: 'flex',
+
       }}>
         <div className='glassEffect'>
             <div className='textHome'>
                 <div style={{ textAlign: 'center' }}>
-                    <p style={{lineHeight: '1',margin:0,fontSize:'168px', color:'white',fontFamily:'Righteous'}}>
+                    <p style={{lineHeight: '1',margin:0,fontSize:'168px', color:'white',fontFamily:'Righteous-Regular'}}>
                         KOREAN
                     </p>
-                    <p style={{fontSize:'50px', lineHeight: '1', margin:0, color:'white',fontFamily:'Righteous' }}>
+                    <p style={{fontSize:'50px', lineHeight: '1', margin:0, color:'white',fontFamily:'Righteous-Regular' }}>
                         TRADITIONAL RESTAURANT
                     </p>
                 </div>

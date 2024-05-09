@@ -169,11 +169,18 @@ export default function Menu() {
  
   return (
     <div className='containerMenu'>
-      <img src={curve} alt="" style={{position:'absolute', width:'100%'}}/>
+      <div className="curve-background">
+        <img src={curve} alt="" style={{width: '100%', height: 'auto'}}/>
+      </div>
       <h1 className='headline'>menu</h1>
+      <div className='searchPanel'>
+        <input placeholder='Search...'/>
+        <button>Find</button>
+      </div>
+      
       <div className="carousel">
         <button className="prev" onClick={prevSlide} disabled={currentIndex === 0}>
-          <img src={back} alt="Back" />
+          <img src={back} alt="Back"/>
         </button>
         <div className="slides"> 
           {currentCards.map((item, index) => (
