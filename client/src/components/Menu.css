@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Righteous-Regular';
+    src: local('Righteous-Regular'), url(../assets/fonts/Righteous-Regular.ttf) format('truetype');
+  }
+.containerMenu {
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+  }
+.headline{
+    font-size: 80px;
+    font-family: 'Righteous-Regular';
+    font-weight: 200;
+    text-transform: uppercase;
+
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.prev:hover,
+.next:hover {
+  transform: translateY(-50%) scale(1.1); /* При наведении кнопка увеличивается */
+}
+.slides {
+  object-fit: cover;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  overflow: hidden;
+  gap: 20px;
+  transition: translate 300ms ease-in-out;
+}
+.dots {
+  height: 20px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.dot-active {
+
+  width: 7px;
+  height: 7px;
+  background-color: #000;
+  border-radius: 200px;
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  border-radius: 200px;
+}
+.prev,
+.next {
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+}
+
+.prev img,
+.next img {
+  width: 40px;
+  height: 40px;
+}
