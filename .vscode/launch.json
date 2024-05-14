@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Start Server",
+          "type": "node",
+          "request": "launch",
+          "cwd": "${workspaceFolder}/server",
+          "runtimeExecutable": "npm",
+          "runtimeArgs": ["start"],
+          "console": "integratedTerminal",
+          "env": {
+              "ENABLE_SWAGGER": "false"
+          }
+      },
+      {
+          "name": "Start Server with Swagger",
+          "type": "node",
+          "request": "launch",
+          "cwd": "${workspaceFolder}/server",
+          "runtimeExecutable": "npm",
+          "runtimeArgs": ["start"],
+          "console": "integratedTerminal",
+          "env": {
+              "ENABLE_SWAGGER": "true"
+          }
+      },
+      {
+          "name": "Start Client",
+          "type": "node",
+          "request": "launch",
+          "cwd": "${workspaceFolder}/client",
+          "runtimeExecutable": "npm",
+          "runtimeArgs": ["start"],
+          "console": "integratedTerminal"
+      }
+  ],
+  "compounds": [
+      {
+          "name": "Start All without Swagger",
+          "configurations": ["Start Server", "Start Client"]
+      },
+  ]
+}
