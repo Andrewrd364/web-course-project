@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import info from '../assets/info.svg';
 import deleteIcon from '../assets/delete.png';
 import './MenuCard.css'
-export default function MenuCard({item}) {
+
+interface MenuCardProps {
+    //TODO добавить тип
+    item: any;
+}
+const MenuCard: React.FC<MenuCardProps> = ({item}) => {
   const [countDose,setCountDose] = useState(1);
   const [edition, setEdition] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -13,8 +18,8 @@ export default function MenuCard({item}) {
         setIsPopupOpen(false);
         setCountDose(1);
     };
-    const handlePopupClick = (e) => {
-        e.stopPropagation();
+    const handlePopupClick = (e: React.MouseEvent) => {
+        e?.stopPropagation();
       };
     
 
@@ -74,3 +79,6 @@ export default function MenuCard({item}) {
     </div>
   )
 }
+
+
+export default MenuCard

@@ -7,7 +7,8 @@ import back from '../assets/back.png';
 import forward from '../assets/forward.png';
 import curve from '../assets/curve.svg';
 
-const items = [
+//TODO исправить
+const items: any = [
   {
     index: 0,
     name: "Dish 1",
@@ -125,7 +126,7 @@ const items = [
     description: "Description for dish 6"
   }
 ];
-export default function Menu() {
+const Menu: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardsPerPage = 8;
   const [dishes, setDishes] = useState([]);
@@ -194,3 +195,5 @@ export default function Menu() {
 
   );
 }
+
+export default Menu;

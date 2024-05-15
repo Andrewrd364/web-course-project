@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "detail": "Установка зависимостей npm",
+            "type": "npm",
+            "script": "install",
+            "path": "client",
+            "problemMatcher": [],
+            "label": "npm: install - client"
+        }
+    ]
+}

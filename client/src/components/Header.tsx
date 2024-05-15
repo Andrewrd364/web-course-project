@@ -2,9 +2,8 @@ import logo from '../assets/logo.svg';
 import React from 'react';
 import basket from '../assets/basket.svg';
 import './Header.css';
-import Mukta from '../assets/fonts/Mukta-Bold.ttf'
 
-export default function Header() {
+  const Header: React.FC = () => {
 
   return (
     <header className="container">
@@ -19,8 +18,10 @@ export default function Header() {
       </div>
       <div style={{ display: 'flex' }}>
         <img src={basket} alt="Корзина" />
-        <button style={{fontFamily:Mukta,fontWeight: 'bold', fontSize:'16px', }}>Booking now</button>
+        <button style={{fontWeight: 'bold', fontSize:'16px', }}>Booking now</button>
       </div>
     </header>
   )
 }
+
+export default Header;
