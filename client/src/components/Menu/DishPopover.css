@@ -1,0 +1,77 @@
+.popup-win .name-dish {
+    font-size: 36px;
+}
+.popup-win .price {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.popup-win {
+    background-color: white;
+    position: relative;
+    width: 900px;
+    height: 450px;
+    border-radius: 25px;
+    padding: 50px;
+    overflow: hidden;
+    display: flex;
+}
+
+.description {
+    font-size: 16px;
+}
+.about-dish {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: start;
+}
+
+.category-dish {
+    width: auto;
+    height: 25px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #F5F5F5;
+    color:#616161;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    font-size: smaller;
+    /* border-radius: 5px; */
+    font-family: 'Mukta-Medium';
+}
+
+.counter-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width:195px;
+    font-size: 24px;
+}
+
+.price {
+    color:red;
+    font-size: 24px;
+}
+
+.popup-fade {
+    display: flex;
+    position: fixed;
+    inset:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    font-family: 'Mukta-Bold';
+    font-weight:500;
+}
+

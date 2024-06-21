@@ -1,0 +1,23 @@
+.rectangular-button {
+    margin: 5px;
+    color: #ffffff !important;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rectangular-button.red {
+    background-color: #ff1515;
+}
+
+.rectangular-button.red:hover {
+    background-color: #cc1212; /* Darker red */
+}
+
+.rectangular-button.dark {
+    background-color: #2d2f38;
+}
+
+.rectangular-button.dark:hover {
+    background-color: #15161a; /* Darker black */
+}

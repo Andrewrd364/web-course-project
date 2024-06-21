@@ -47,6 +47,13 @@ interface CartServices {
      * @param dishId Идентификатор товара, количество которого нужно уменьшить.
      */
     decreaseQuantity(dishId: string): void;
+
+        /**
+     * Получить элемент корзины.
+     * Если товара нет в корзине, будет возвращен 0.
+     * @param dishId Идентификатор товара, который нужно получить.
+     */
+    getCartItem(dishId: string): ICartItem;
 }
 
 
@@ -87,5 +94,11 @@ export const cartStorage: CartServices = {
             }
             this.setCart(cart);
         }
+    },
+    getCartItem(dishId) {
+        const cart = this.getCart();
+        const quantity = cart[dishId] || 0; // Если cart[dishId] не существует, вернет 0
+        return {quantity: quantity, dishId: dishId};
     }
+    
 };

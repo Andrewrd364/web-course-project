@@ -7,7 +7,7 @@ import Footer from "../Footer";
 const HomePage: React.FC = () => {
     return (
         <>
-            <Header />
+            <Header currentButton={"home"} />
             <Home />
             <Menu />
             <Footer />

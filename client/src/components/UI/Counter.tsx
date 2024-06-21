@@ -1,45 +1,47 @@
 import React, { useState } from "react";
+import "./Counter.css";
 
 interface CounterProps {
     initialValue: number;
     onChangeCounter(value: number): void;
-    maxValue?:number;
-    minValue?:number;
+    maxValue?: number;
+    minValue?: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ initialValue, maxValue = 100,minValue = 1, onChangeCounter }) => {
+const Counter: React.FC<CounterProps> = ({
+    initialValue,
+    maxValue = 100,
+    minValue = 0,
+    onChangeCounter,
+}) => {
     const [countDose, setCountDose] = useState(initialValue);
 
     const decreaseCounter = () => {
-        setCountDose((prevCountDose) => prevCountDose - 1);
-        onChangeCounter(countDose);
+        if (countDose > minValue) {
+            setCountDose((prevCountDose) => prevCountDose - 1);
+            onChangeCounter(countDose - 1);
+        }
     };
 
     const increaseCounter = () => {
-        setCountDose((prevCountDose) => prevCountDose + 1);
-        onChangeCounter(countDose);
+        if (countDose < maxValue) {
+            setCountDose((prevCountDose) => prevCountDose + 1);
+            onChangeCounter(countDose + 1);
+        }
     };
 
     return (
-        <div className="counter">
+        <div className="counter" onClick={(e) => e.stopPropagation()}>
             <button
-                style={{
-                    margin: "0 0 0 0",
-                    width: "34px",
-                    height: "34px",
-                }}
+                className="counter-button"
                 disabled={countDose <= minValue}
                 onClick={decreaseCounter}
             >
                 -
             </button>
-            <div style={{ display: "flex" }}>{countDose}</div>
+            <div className="count-display">{countDose}</div>
             <button
-                style={{
-                    margin: "0 0 0 0",
-                    width: "34px",
-                    height: "34px",
-                }}
+                className="counter-button"
                 disabled={countDose >= maxValue}
                 onClick={increaseCounter}
             >
@@ -50,3 +52,4 @@ const Counter: React.FC<CounterProps> = ({ initialValue, maxValue = 100,minValue
 };
 
 export default Counter;
+
