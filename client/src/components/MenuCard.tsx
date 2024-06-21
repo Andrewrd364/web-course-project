@@ -3,13 +3,15 @@ import info from "../assets/info.svg";
 import deleteIcon from "../assets/delete.png";
 import "./MenuCard.css";
 import { IDish } from "../models/IDish";
+import Counter from "./UI/Counter";
+import { cartStorage } from "../services/CartServise";
 
 interface MenuCardProps {
     dish: IDish;
     categoryName: string;
 }
+
 const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName }) => {
-    const [countDose, setCountDose] = useState(1);
     const [edition, setEdition] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const openPopup = () => {
@@ -17,10 +19,15 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName }) => {
     };
     const closePopup = () => {
         setIsPopupOpen(false);
-        setCountDose(1);
     };
     const handlePopupClick = (e: React.MouseEvent) => {
         e?.stopPropagation();
+    };
+
+    const addToCart = (value: number = 1) => {
+        //TODO испрвить добавление в корзину, чтобы не приходилось удалять
+        cartStorage.removeFromCart(dish.id)
+        cartStorage.addToCart({dishId: dish.id, quantity: value})
     };
 
     return (
@@ -48,37 +55,10 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName }) => {
                             </div>
                             <div className="counter-panel">
                                 <div>{dish.weightInGrams}g</div>
-                                <div className="counter">
-                                    <button
-                                        style={{
-                                            margin: "0 0 0 0",
-                                            width: "34px",
-                                            height: "34px",
-                                        }}
-                                        disabled={countDose <= 1}
-                                        onClick={() =>
-                                            setCountDose(countDose - 1)
-                                        }
-                                    >
-                                        -
-                                    </button>
-                                    <div style={{ display: "flex" }}>
-                                        {countDose}
-                                    </div>
-                                    <button
-                                        style={{
-                                            margin: "0 0 0 0",
-                                            width: "34px",
-                                            height: "34px",
-                                        }}
-                                        disabled={countDose >= 10}
-                                        onClick={() =>
-                                            setCountDose(countDose + 1)
-                                        }
-                                    >
-                                        +
-                                    </button>
-                                </div>
+                                <Counter
+                                    initialValue={0}
+                                    onChangeCounter={addToCart}
+                                />
                             </div>
                             <button className="button-buy">Add to cart</button>
                         </div>
@@ -143,10 +123,14 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName }) => {
                     >
                         <div>
                             <div className="name-dish">{dish.name}</div>
-                            <div style={{ color: "gray" }}>{dish.weightInGrams}g</div>
+                            <div style={{ color: "gray" }}>
+                                {dish.weightInGrams}g
+                            </div>
                         </div>
                         <div className="price">{dish.price}$</div>
-                        <button className="button-buy">Buy now</button>
+                        <button className="button-buy" onClick={() => addToCart()}>
+                            Buy now
+                        </button>
                     </div>
                 </div>
             </div>
