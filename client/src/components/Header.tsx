@@ -5,7 +5,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import { BOOK_TABLE_ROUTE, CART_ROUTE, DEFAULT_ROUTE, MENU_ROUTE } from '../routing/routesConsts';
 
-  const Header: React.FC = () => {
+const Header: React.FC = () => {
 
   return (
     <header className="container">
