@@ -5,7 +5,7 @@ import "./AboutUs.css";
 const About: React.FC = () => {
     return (
         <div className="containerAbout">
-            <img src={bgAbout} alt=''/>
+            <img src={bgAbout} alt='' />
             <div className="glass-effect">
                 <p>About us</p>
                 <div className="text">Welcome to SIG-YOG restaurant!</div>

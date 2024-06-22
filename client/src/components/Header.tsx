@@ -16,7 +16,9 @@ const Header: React.FC<HeaderProps> = ({currentButton}) => {
   return (
     <header className="container">
       <img src={logo} alt="Логотип" />
+
       <div style={{ display: 'flex', listStyleType: 'none', width: '40%', justifyContent: 'space-between' }}>
+
         <li><Link className={currentButton == "home" ? "active" : ""}  to={DEFAULT_ROUTE}>Home</Link ></li>
         <li><Link className={currentButton == "menu" ? "active" : ""}  to={MENU_ROUTE}>Menu</Link ></li>
         <li><Link className={currentButton == "delivery" ? "active" : ""} to={DELIVERY_ROUTE}>Delivery</Link ></li>

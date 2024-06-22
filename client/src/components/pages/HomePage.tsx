@@ -3,13 +3,15 @@ import Header from "../Header";
 import Home from "../Home";
 import Menu from "../Menu";
 import Footer from "../Footer";
+import OurDishes from "../OurDishes";
+
 
 const HomePage: React.FC = () => {
     return (
         <>
             <Header currentButton={"home"} />
             <Home />
-            <Menu />
+            <OurDishes />
             <Footer />
         </>
     );
