@@ -1,31 +1,28 @@
 import React from "react";
 import '../OurDishes.css'
+import { IDish } from "../../models/IDish";
 
 interface OurDishesCardProps {
-    title: string;
-    description: string;
-    translate: string;
-    cost: number;
-    weight: number;
-    image: string;
+    dish: IDish
     mode: number;
 }
 
-const OurDishesCard: React.FC<OurDishesCardProps> = ({ title, translate, description, cost, weight, image, mode }) => {
+const OurDishesCard: React.FC<OurDishesCardProps> = ({ dish, mode }) => {
+    
     return (
         <>
 
             {mode === 0 ? (
 
                 <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '200px', marginLeft: '-150px' }}>
-                    <img src={image} alt="" width={580} />
+                    <img src={dish.imageUrl} alt="" width={580} />
                     <div style={{ marginTop: '150px', marginLeft: '100px' }}>
-                        <div className="title">{title}</div>
-                        <div className="translate">{translate}</div>
-                        <div className="description">{description}</div>
+                        <div className="title">{dish.name}</div>
+                        {/* <div className="translate">{translate}</div> */}
+                        <div className="description">{dish.description}</div>
                         <div className="more-info">
-                            <div className="cost">{cost} $</div>
-                            <div className="weight">{weight} g</div>
+                            <div className="cost">{dish.price} $</div>
+                            <div className="weight">{dish.weightInGrams} g</div>
                         </div>
                         <button
                             title='Buy'
@@ -40,18 +37,18 @@ const OurDishesCard: React.FC<OurDishesCardProps> = ({ title, translate, descrip
 
                 <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '200px', marginLeft: '150px' }}>
                     <div style={{ marginTop: '150px', marginRight: '100px' }}>
-                        <div className="title" >{title}</div>
-                        <div className="translate">{translate}</div>
-                        <div className="description">{description}</div>
+                        <div className="title" >{dish.name}</div>
+                        {/* <div className="translate">{translate}</div> */}
+                        <div className="description">{dish.description}</div>
                         <div className="more-info">
-                            <div className="cost" >{cost} $</div>
-                            <div className="weight" >{weight} g</div>
+                            <div className="cost" >{dish.price} $</div>
+                            <div className="weight" >{dish.weightInGrams} g</div>
                         </div>
                         <button className="buy-now" title='Buy'>
                             Buy now
                         </button>
                     </div>
-                    <img src={image} alt="" width={580} />
+                    <img src={dish.imageUrl} alt="" width={580} />
 
                 </div>
             )}
