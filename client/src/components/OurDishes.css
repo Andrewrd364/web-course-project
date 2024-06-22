@@ -1,0 +1,75 @@
+.container-ourdishes {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.buy-now {
+    width: 132px;
+    height: 54px;
+    background-color: black;
+    font-size: 16px;
+    font-family: 'Mukta-Bold';
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+
+.curve-background {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    margin-top: 100px;
+    margin-right: 100px;
+} 
+
+.title {
+    font-family: 'Mukta-Medium';
+    font-size: 36px;
+}
+
+.translate{
+    font-family: 'Mukta-Medium';
+    font-size: 24px;
+}
+
+.description{
+    font-family: 'Mukta-Regular';
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.weight {
+    font-family: 'Mukta-Regular';
+    font-size: 20px;
+    color: black;
+}
+
+
+.cost {
+    font-family: 'Mukta-Bold';
+    font-size: 36px;
+    color: red;
+    margin-right: 24px;
+}
+
+.more-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.button-more{
+    width: 198px;
+    height: 76px;
+    background-color: red;
+    font-size: 24px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: -80px;
+    align-self: flex-end;
+}

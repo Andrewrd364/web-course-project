@@ -22,7 +22,7 @@ export default function Home() {
               TRADITIONAL RESTAURANT
             </p>
           </div>
-          <button title='Menu' style={{ float: 'left', marginTop: '50px', width: '198px', height: '76px', backgroundColor: 'red', fontSize: '24px', color: 'white', border: 'none' }}>Menu</button>
+          <button title='Menu' style={{ float: 'left', marginTop: '50px', width: '198px', height: '76px', backgroundColor: 'red', fontSize: '24px', color: 'white', border: 'none', cursor: 'pointer' }}>Menu</button>
         </div>
       </div>
     </div>
