@@ -1,0 +1,26 @@
+.counter {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-button {
+    margin: 0px;
+    width: 40px; /* Ширина кнопок */
+    height: 40px; /* Высота кнопок */
+    border: 2px solid #e5e5e5;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em; /* Размер шрифта кнопок */
+}
+
+.count-display {
+    width: 40px; /* Ширина блока с числом */
+    text-align: center;
+    font-size: 1.2em; /* Размер шрифта числа */
+}
+

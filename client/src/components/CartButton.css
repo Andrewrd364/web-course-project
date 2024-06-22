@@ -1,0 +1,21 @@
+.cart-button {
+    margin-top: 6px;
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: 4px;
+    right: -5px;
+    background-color: #FF1515; /* Красный цвет фона */
+    color: #FFFFFF; /* Белый цвет текста */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
