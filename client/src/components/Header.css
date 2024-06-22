@@ -1,14 +1,27 @@
-li a{
+li a {
     color: white;
     text-decoration: none;
-  }
-  
-  /* .active {
-    background-image: url('../assets/redUnderline.svg');
-    background-position: center bottom;
-    background-size: auto;
-  } */
-  .container {
+}
+
+.active {
+    position: relative;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 24px;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 10px; /* Задайте высоту полоски в зависимости от вашего изображения */
+    background-image: url("../assets/redUnderline.svg");
+    background-repeat: no-repeat;
+    background-size: contain; /* Или auto, если нужно сохранить оригинальные размеры */
+    background-position: center;
+}
+
+.container {
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -17,15 +30,15 @@ li a{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     font-size: calc(8px + 1vmin);
     color: white;
-  }  
-  button{
+}
+button {
     size: 16px;
     background-color: #fff;
     border-radius: 7px;
     height: 54px;
     margin-left: 24px;
     width: 132px;
-  }
+}

@@ -5,10 +5,11 @@ import Menu from "../Menu";
 import Footer from "../Footer";
 import OurDishes from "../OurDishes";
 
+
 const HomePage: React.FC = () => {
     return (
         <>
-            <Header />
+            <Header currentButton={"home"} />
             <Home />
             <OurDishes />
             <Footer />

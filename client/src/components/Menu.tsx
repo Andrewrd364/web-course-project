@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Menu.css";
 import "../assets/back.png";
-import MenuCard from "./MenuCard";
+import MenuCard from "./Menu/MenuCard";
 import back from "../assets/back.png";
 import forward from "../assets/forward.png";
 import curve from "../assets/curve.svg";
@@ -77,6 +77,7 @@ const Menu: React.FC = () => {
                     {currentCards.map((item, index) => (
                         <div key={index} className="slide">
                             <MenuCard
+                                theme="light"
                                 dish={item}
                                 categoryName={
                                     categories.filter(
