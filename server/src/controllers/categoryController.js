@@ -14,7 +14,11 @@ class categoryController {
     async getAll(req, res){
         try {
             const categories = await Category.find();
-            return res.json(categories);
+            const formattedCat = categories.map(cat => ({
+                id: cat._id,
+                name: cat.name
+            }));
+            return res.json(formattedCat);
         } catch (e) {
             res.status(500).json(e.message)
         }
@@ -27,6 +31,11 @@ class categoryController {
                 return res.status(400).json({message: 'Id не указан'})
             }
             const category = await Category.findById(id);
+            const formattedCat = category.map(cat => ({
+                id: cat._id,
+                name: cat.name
+            }));
+            return res.json(formattedCat);
             return res.json(category);
         } catch (e) {
             res.status(500).json(e.message)

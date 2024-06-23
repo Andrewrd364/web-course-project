@@ -23,7 +23,17 @@ class DishController {
     async getAll(req, res){
         try {
             const dishes = await Dish.find();
-            return res.json(dishes);
+            const formattedDishes = dishes.map(dish => ({
+                id: dish._id,
+                name: dish.name,
+                description: dish.description,
+                price: dish.price,
+                weightInGrams: dish.weightInGrams,
+                imageUrl: dish.imageUrl,
+                nutritionalValue: dish.nutritionalValue,
+                categoryId: dish.categoryId
+            }));
+            return res.json(formattedDishes);
         } catch (e) {
             res.status(500).json(e.message)
         }
@@ -36,7 +46,17 @@ class DishController {
                 return res.status(400).json({message: 'Id не указан'})
             }
             const dish = await Dish.findById(id);
-            return res.json(dish);
+            const formattedDish = dish.map(dish => ({
+                id: dish._id,
+                name: dish.name,
+                description: dish.description,
+                price: dish.price,
+                weightInGrams: dish.weightInGrams,
+                imageUrl: dish.imageUrl,
+                nutritionalValue: dish.nutritionalValue,
+                categoryId: dish.categoryId
+            }));
+            return res.json(formattedDish);
         } catch (e) {
             res.status(500).json(e.message)
         }
@@ -48,6 +68,7 @@ class DishController {
             if(!dish._id){
                 return res.status(400).json({message:'Id не указан'})
             }
+            dish.imageUrl = 'http://localhost:5000/' + dish.imageUrl
             const updatedDish = await Dish.findByIdAndUpdate(dish._id, dish, {new: true})
             return res.json(updatedDish)
         } catch (e) {
