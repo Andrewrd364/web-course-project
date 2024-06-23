@@ -1,7 +1,7 @@
 import Router from "express"
-import DishController from "./DishController.js";
+import DishController from "../controllers/DishController.js";
 
-const router = new Router()
+const router = Router();
 
 /**
  * @swagger
@@ -35,7 +35,7 @@ const router = new Router()
  *       500:
  *         description: Server error
  */
-router.post('/dishes', DishController.create)
+router.post('/', DishController.create)
 
 /**
  * @swagger
@@ -54,7 +54,7 @@ router.post('/dishes', DishController.create)
  *       500:
  *         description: Server error
  */
-router.get('/dishes', DishController.getAll)
+router.get('/', DishController.getAll)
 
 /**
  * @swagger
@@ -80,7 +80,7 @@ router.get('/dishes', DishController.getAll)
  *       500:
  *         description: Server error
  */
-router.get('/dishes/:id', DishController.getOne)
+router.get('/:id', DishController.getOne)
 
 /**
  * @swagger
@@ -101,7 +101,7 @@ router.get('/dishes/:id', DishController.getOne)
  *       500:
  *         description: Server error
  */
-router.put('/dishes', DishController.update)
+router.put('/', DishController.update)
 
 /**
  * @swagger
@@ -123,6 +123,6 @@ router.put('/dishes', DishController.update)
  *       500:
  *         description: Server error
  */
-router.delete('/dishes/:id', DishController.delete)
+router.delete('/:id', DishController.delete)
 
 export default router;

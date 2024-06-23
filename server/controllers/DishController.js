@@ -1,4 +1,4 @@
-import Dish from "./Dish.js";
+import Dish from "../models/Dish.js";
 
 class DishController {
 
