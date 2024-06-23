@@ -20,6 +20,7 @@ const Delivery: React.FC = () => {
             <div className="content">
                 <div className="left">
                     <DeliveryCard
+                        theme="dark"
                         title="Breakfasts"
                         discount={10}
                         timeRange="9:00 AM to 10:00 AM"
@@ -27,6 +28,7 @@ const Delivery: React.FC = () => {
                         icon={breakfastIcon}
                     />
                     <DeliveryCard
+                        theme="dark"
                         title="Lunches"
                         discount={10}
                         timeRange="3:00 PM to 4:00 PM"
@@ -34,10 +36,11 @@ const Delivery: React.FC = () => {
                         icon={lunchIcon}
                     />
                     <DeliveryCard
+                        theme="dark"
                         title="Dinners"
                         discount={10}
                         timeRange="10:00 PM to 11:00 PM"
-                        isHighlighted={checkHighlighted(22, 23)}
+                        isHighlighted={checkHighlighted(23, 24)}
                         icon={dinnerIcon}
                     />
                 </div>
