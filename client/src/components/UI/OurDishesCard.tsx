@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../OurDishes.css";
 import { IDish } from "../../models/IDish";
 import SkeletonImage from "./SkeletonImage";
 import Skeleton from "./Skeleton";
+import { useAppDispatch } from "../../hooks/redux";
+import { cartStorage } from "../../services/CartService";
+import Counter from "./Counter";
+import RectangularButton from "./RectangularButton";
+import { CartSlice } from "../../store/reducers/CartSlice";
 
 interface OurDishesCardProps {
     dish: IDish;
@@ -10,6 +15,21 @@ interface OurDishesCardProps {
 }
 
 const OurDishesCard: React.FC<OurDishesCardProps> = ({ dish, mode }) => {
+    const dispatch = useAppDispatch();
+    const initialQuantity = cartStorage.getCartItem(dish.id)?.quantity;
+    const [showCounter, setShowCounter] = useState<boolean>(
+        initialQuantity > 0
+    );
+
+    const setCartItem = (value: number = 1) => {
+        //TODO исправить добавление в корзину, чтобы не приходилось удалять
+        cartStorage.removeFromCart(dish.id);
+        cartStorage.addToCart({ dishId: dish.id, quantity: value });
+        dispatch(CartSlice.actions.setQuantity(cartStorage.getTotalQuantity()));
+        setShowCounter(value > 0);
+        CartSlice;
+    };
+
     return (
         <>
             {mode === 0 ? (
@@ -48,9 +68,22 @@ const OurDishesCard: React.FC<OurDishesCardProps> = ({ dish, mode }) => {
                             <div className="cost">{dish.price} $</div>
                             <div className="weight">{dish.weightInGrams} g</div>
                         </div>
-                        <button title="Buy" className="buy-now">
-                            Buy now
-                        </button>
+                        {showCounter ? (
+                            <Counter
+                                style={{ justifyContent: "flex-start" }}
+                                initialValue={initialQuantity}
+                                onChangeCounter={setCartItem}
+                            />
+                        ) : (
+                            <RectangularButton
+                                text="Buy now"
+                                theme="dark"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCartItem();
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
             ) : (
@@ -70,9 +103,22 @@ const OurDishesCard: React.FC<OurDishesCardProps> = ({ dish, mode }) => {
                             <div className="cost">{dish.price} $</div>
                             <div className="weight">{dish.weightInGrams} g</div>
                         </div>
-                        <button className="buy-now" title="Buy">
-                            Buy now
-                        </button>
+                        {showCounter ? (
+                            <Counter
+                                style={{ justifyContent: "flex-start" }}
+                                initialValue={initialQuantity}
+                                onChangeCounter={setCartItem}
+                            />
+                        ) : (
+                            <RectangularButton
+                                text="Buy now"
+                                theme="dark"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCartItem();
+                                }}
+                            />
+                        )}
                     </div>
                     <SkeletonImage
                         src={dish.imageUrl}
