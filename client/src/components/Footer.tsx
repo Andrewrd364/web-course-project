@@ -11,11 +11,10 @@ const Footer: React.FC = () => {
             backgroundPosition: 'center',
             width: '100%',
             height: '80vh',
-            position: 'relative',
             display: 'flex',
             color: '#fff',
             fontFamily: 'Mukta-Regular',
-            fontSize: '16px'
+            fontSize: '16px',
         }}>
             <div className="container-footer">
                 <div className="inner-container">
@@ -42,9 +41,9 @@ const Footer: React.FC = () => {
                     <div>
                         <div className="section-title">Social media</div>
                         <ul className="social-media-list">
-                            <li className="social-media-item"><a href="https://facebook.com" className="social-media-link">Facebook</a></li>
-                            <li className="social-media-item"><a href="https://twitter.com" className="social-media-link">Twitter</a></li>
-                            <li><a href="https://instagram.com" className="social-media-link">Instagram</a></li>
+                            <li className="social-media-item"><a href="/notFound" className="social-media-link">Facebook</a></li>
+                            <li className="social-media-item"><a href="/notFound" className="social-media-link">Twitter</a></li>
+                            <li><a href="/notFound" className="social-media-link">Instagram</a></li>
                         </ul>
                     </div>
                     <div>

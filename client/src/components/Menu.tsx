@@ -60,7 +60,7 @@ const Menu: React.FC = () => {
             <img
                 src={curve}
                 alt=""
-                style={{ position: "absolute", width: "100%" }}
+                style={{ position: "absolute", width: "100%", zIndex:-1 }}
             />
             <h1 className="headline">menu</h1>
             <div className="carousel">

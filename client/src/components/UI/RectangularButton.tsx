@@ -19,7 +19,7 @@ const RectangularButton: React.FC<RectangularButtonProps> = ({
         <button
             className={`rectangular-button ${theme}`}
             onClick={onClick}
-            title="Menu"
+            // title="Menu"
             style={style}
         >
             {text}
