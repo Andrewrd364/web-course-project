@@ -6,4 +6,4 @@ export interface IBookingTable {
         phoneNumber: string;
         email: string;
     };
-}
+} 
