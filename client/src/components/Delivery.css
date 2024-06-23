@@ -12,7 +12,7 @@
     margin-bottom: 20px;
   }
   
-  .menu-item {
+  .menu-item.dark {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -21,8 +21,22 @@
     color: #fff;
   }
 
-  .menu-item.highlighted {
+  .menu-item.light {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #15161A;
+  }
+
+  .menu-item.highlighted.dark {
     background-color: #444;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  .menu-item.highlighted.light {
+    background-color: #202125;
+    color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
 
