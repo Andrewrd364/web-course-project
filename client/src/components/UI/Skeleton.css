@@ -1,0 +1,14 @@
+.skeleton-placeholder {
+    background-color: #f0f0f0;
+    animation: skeleton-animation 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes skeleton-animation {
+    0% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+  

@@ -4,7 +4,7 @@ import "./OurDishes.css";
 import OurDishesCard from "./UI/OurDishesCard";
 import { IDish } from "../models/IDish";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { fetchCategories } from "../store/reducers/DishesSlice";
+import { fetchDishes } from "../store/reducers/DishesSlice";
 import RectangularButton from "./UI/RectangularButton";
 import { MENU_ROUTE } from "../routing/routesConsts";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +12,7 @@ import { useNavigate } from "react-router-dom";
 const OurDishes: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const dishes = useAppSelector((state) => state.dishesReducer.dishes);
-    const dis = useAppSelector((state) => state.dishesReducer.categories)
+    const dishes: IDish[] | null = useAppSelector((state) => state.dishesReducer.dishes);
 
     const goToMenuPage = () => {
         navigate(MENU_ROUTE);
@@ -21,7 +20,7 @@ const OurDishes: React.FC = () => {
 
     useEffect(() => {
         if (dishes == null) {
-            dispatch(fetchCategories());
+            dispatch(fetchDishes());
         }
     }, []);
 
