@@ -6,17 +6,7 @@ import { IDish } from "../models/IDish";
 
 export default class DishService {
     static async getAll(): Promise<AxiosResponse<IDish[]>> {
-        // Создаем экземпляр axios и MockAdapter
-        const axiosInstance = axios.create();
-        const mock = new MockAdapter(axiosInstance);
-
-        // Мокируем запрос POST на `/api${ControllerUrls.DISHES}`
-        mock.onGet(`/api${ControllerUrls.DISHES}`).reply(200, dishes);
-
-        // Выполняем запрос
-        return axiosInstance.get(`/api${ControllerUrls.DISHES}`, {});
-
-        // return axios.get<any>(`/api${ControllerUrls.DISHES}`, {});
+        return axios.get('http://localhost:5000/api/dishes');
     }
 
     static async put(): Promise<void> {
