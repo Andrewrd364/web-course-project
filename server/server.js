@@ -9,6 +9,7 @@ const app = express()
 export const PORT = 5000
 
 app.use(express.json())
+app.use(express.static('images'))
 setupSwagger(app);
 
 app.use((req, res, next) => {
@@ -28,4 +29,5 @@ async function startApp(){
         console.log(e)
     }
 }
+
 startApp()

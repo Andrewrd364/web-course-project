@@ -1,12 +1,20 @@
 import Dish from "../models/Dish.js";
+import Category from "../models/Category.js";
 
 class DishController {
 
     async create(req, res){
         try {
-            const {name, description, picture} = req.body
-            const dish = await Dish.create({name, description, picture})
-            return res.json(dish)
+            let {imageUrl, name, categoryId, description, price, weightInGrams, nutritionalValue} = req.body
+            const categoryExists = await Category.findById(categoryId);
+            if (!categoryExists) {
+                throw new Error('Wrong category Id');
+            }
+            else{
+                imageUrl = 'http://localhost:5000/' + imageUrl
+                const dish = await Dish.create({imageUrl, name, categoryId, description, price, weightInGrams, nutritionalValue})
+                return res.json(dish)
+            }
         } catch (e) {
             res.status(500).json(e.message)
         }

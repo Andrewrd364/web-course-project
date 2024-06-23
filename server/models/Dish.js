@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, {Schema} from 'mongoose'
 
 const Dish = new mongoose.Schema({
     imageUrl: { type: String, required: true },
