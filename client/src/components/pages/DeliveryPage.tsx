@@ -6,9 +6,9 @@ import Delivery from "../Delivery";
 
 const DeliveryPage: React.FC = () => {
     return (
-        <div style={{backgroundColor:'#15161A', position:'absolute', zIndex:-1, backgroundSize:'cover'}}>
+        <div style={{ backgroundColor: '#15161A', position: 'absolute', zIndex: -1, backgroundSize: 'cover', width: '100%' }}>
             <Header currentButton={"delivery"} />
-            <Delivery/>
+            <Delivery />
             <Footer />
         </div>
     );

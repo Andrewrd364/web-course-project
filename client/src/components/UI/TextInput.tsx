@@ -1,92 +1,74 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface TextInputProps {
   label: string;
   placeholder: string;
-  mode:number;
+  mode: "titleTop" | "titleLeft";
 }
 
 const TextInput: React.FC<TextInputProps> = ({ label, placeholder, mode }) => {
   const [borderColor, setBorderColor] = useState<string>('#e0e0e0');
 
-  const handleFocus = () => setBorderColor('red');
-  const handleBlur = () => setBorderColor('#e0e0e0');
   const [inputWidth, setInputWidth] = useState<string>('auto');
   const spanRef = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
     if (spanRef.current) {
-      // Добавляем небольшой отступ, чтобы текст не был обрезан
-      setInputWidth(`${spanRef.current.offsetWidth + 10}px`);
+      setInputWidth(`${spanRef.current.offsetWidth + 20}px`);
     }
   }, [placeholder]);
+
+  const handleFocus = () => setBorderColor('red');
+  const handleBlur = () => setBorderColor('#e0e0e0');
+
   return (
     <>
-    {mode===0?(
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        border: `2px solid ${borderColor}`, 
-        borderRadius: '10px', 
-        padding: '10px', 
-        margin: '10px 0' 
-      }}>
-        <label style={{ marginRight: '10px' }}>{label}</label>
-        <div style={{ 
-          width: '1px', 
-          height: '20px', 
-          // border: `0.5px solid #e0e0e0`,
-          backgroundColor: '#e0e0e0', 
-          margin: '0 10px' 
-        }}></div>
-        <input
-          type="text"
-          placeholder={placeholder}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          style={{ border: 'none', outline: 'none', flex: 1 }}
-        />
-      </div>
-    ):(
-       <div style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
-         <label style={{ marginRight: '10px' }}>{label}</label>
-        <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent:"center",
-        margin: '8px 0',
-        border: `2px solid ${borderColor}`,
-        padding:"10px",
-        borderRadius: '10px', 
-      }}>
-        <div style={{ position: 'relative', display: 'inline-block' }}>
-      <span 
-        ref={spanRef} 
-        style={{ 
-          visibility: 'hidden', 
-          whiteSpace: 'nowrap', 
-          position: 'absolute', 
-          fontSize: 'inherit', 
-          fontFamily: 'inherit', 
-          fontWeight: 'inherit', 
-          letterSpacing: 'inherit'
-        }}
-      >
-        {placeholder}
-      </span>
-      <input
-          type="text"
-          placeholder={placeholder}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          style={{ border: 'none', outline: 'none', width:inputWidth}}
-        />
-    </div>
-        
-      </div>
-       </div>
-    )}
+      {mode === "titleTop" ? (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <label>{label}</label>
+          <div style={{ flexDirection: 'column', alignItems: 'center', border: `2px solid ${borderColor}`, borderRadius: '10px', paddingInline: '10px', paddingTop: '12px', paddingBottom: '12px', margin: '8px 0', display: 'inline-block', width: inputWidth }}>
+            <span
+              ref={spanRef}
+              style={{
+                visibility: 'hidden',
+                whiteSpace: 'nowrap',
+                position: 'absolute',
+                fontSize: 'inherit',
+                fontFamily: 'inherit',
+                fontWeight: 'inherit',
+                letterSpacing: 'inherit'
+              }}
+            >
+              {placeholder}
+            </span>
+            <input
+              type="text"
+              placeholder={placeholder}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              style={{ border: 'none', outline: 'none', textAlign: 'center', flex: 1, width: '100%' }}
+            />
+          </div>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', alignItems: 'center', border: `2px solid ${borderColor}`, borderRadius: '10px', padding: '10px', marginBottom: '32px' }}>
+          <label style={{ marginInline: '8px' }}>{label}</label>
+          <div style={{
+            width: '1px',
+            height: '28px',
+            backgroundColor: '#e0e0e0',
+            marginInline: '10px'
+          }} />
+          <input
+            type="text"
+            placeholder={placeholder}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ border: 'none', outline: 'none' }}
+          />
+        </div>
+      )}
     </>
-    
   );
 };
 

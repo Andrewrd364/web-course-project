@@ -14,13 +14,13 @@ const NotFoundPage: React.FC = () => {
     return (
         <>
             <Header />
-            <div style={{display:'flex', paddingTop:'100px', alignItems:'center', flexDirection:'column'}}>
-                <img src={errorImg} alt='error'/>
-                <div style={{fontFamily:'Mukta-Medium', fontSize:'36px', color:'black', marginTop:'-40px'}}>Woops... Sorry, the page not found</div>
-                <img src={curve} alt="" style={{position:'absolute', zIndex:'-1', right:0, bottom:-100}}/>
-                <RectangularButton theme="red" text="Go back" onClick={() => navigate(-1)} style={{fontFamily:'Mukta-Bold', fontSize:'24px', width:'198px', height:'75px', marginTop:'87px', marginBottom:'174px'}}/>
+            <div style={{ display: 'flex', paddingTop: '100px', alignItems: 'center', flexDirection: 'column' }}>
+                <img src={errorImg} alt='error' />
+                <div style={{ fontFamily: 'Mukta-Medium', fontSize: '36px', color: 'black', marginTop: '-40px' }}>Woops... Sorry, the page not found</div>
+                <img src={curve} alt="" style={{ position: 'absolute', zIndex: '-1', right: 0, bottom: -100 }} />
+                <RectangularButton theme="red" text="Go back" onClick={() => navigate(-1)} style={{ fontFamily: 'Mukta-Bold', fontSize: '24px', width: '198px', height: '75px', marginTop: '87px', marginBottom: '174px' }} />
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 };
