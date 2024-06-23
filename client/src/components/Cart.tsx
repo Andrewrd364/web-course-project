@@ -8,15 +8,18 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { IDish } from "../models/IDish";
 import { CartSlice } from "../store/reducers/CartSlice";
 import { fetchDishes } from "../store/reducers/DishesSlice";
+import { useNavigate } from "react-router-dom";
+import { CHECKOUT_ROUTE } from "../routing/routesConsts";
 
 const Cart: React.FC = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const dishes = useAppSelector((state) => state.dishesReducer.dishes);
     const numberOfCarts = useAppSelector(
         (state) => state.cartReducer.quantityDishesInCart
     );
     console.log("numberOfCarts: ", numberOfCarts);
-    
+
     const [cartItems, setCartItems] = useState<ICartItem[]>([]);
     const [totalAmount, setTotalAmount] = useState<number>(0);
     const [selectedDishes, setSelectedDishes] = useState<
@@ -72,7 +75,7 @@ const Cart: React.FC = () => {
             return sum + item.price * item.quantity;
         }, 0);
         console.log("selectedDishes: ", selectedDishes);
-        
+
         console.log("useEffect");
         console.log("total: ", total);
         setTotalAmount(total);
@@ -157,7 +160,7 @@ const Cart: React.FC = () => {
                 <RectangularButton
                     text="Checkout"
                     theme="red"
-                    onClick={() => console.log("Спасибо за заказ")}
+                    onClick={() => navigate(CHECKOUT_ROUTE)}
                     style={{
                         width: "198px",
                         height: "75px",

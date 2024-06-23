@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import "./Menu.css";
 import "../assets/back.png";
 import MenuCard from "./Menu/MenuCard";
@@ -12,7 +12,7 @@ const Menu: React.FC = () => {
     const dispatch = useAppDispatch();
     const cardsPerPage = 8;
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const [searchTerm, setSearchTerm] = useState("");
     const dishes = useAppSelector((state) => state.dishesReducer.dishes);
     const categories = useAppSelector(
         (state) => state.dishesReducer.categories
@@ -35,8 +35,17 @@ const Menu: React.FC = () => {
         setCurrentIndex((prevIndex) => prevIndex - 1);
     };
 
-    const totalPages = Math.ceil((dishes ? dishes.length : 0) / cardsPerPage);
-    const currentCards = dishes?.slice(
+    // const totalPages = Math.ceil((dishes ? dishes.length : 0) / cardsPerPage);
+    // const currentCards = dishes?.slice(
+    //     currentIndex * cardsPerPage,
+    //     (currentIndex + 1) * cardsPerPage
+    // );
+    const filteredDishes = dishes?.filter((dish) =>
+        dish.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    const totalPages = Math.ceil((filteredDishes ? filteredDishes.length : 0) / cardsPerPage);
+
+    const currentCards = filteredDishes?.slice(
         currentIndex * cardsPerPage,
         (currentIndex + 1) * cardsPerPage
     );
@@ -54,15 +63,25 @@ const Menu: React.FC = () => {
         }
         return dots;
     };
-
+    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+        setCurrentIndex(0); // сбросить на первую страницу при новом поиске
+    };
     return (
         <div className="containerMenu">
             <img
                 src={curve}
                 alt=""
-                style={{ position: "absolute", width: "100%", zIndex:-1 }}
+                style={{ position: "absolute", width: "100%", zIndex: -1 }}
             />
             <h1 className="headline">menu</h1>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="search-input"
+            />
             <div className="carousel">
                 <button
                     className="prev"
