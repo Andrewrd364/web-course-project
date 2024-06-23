@@ -73,7 +73,7 @@ const Menu: React.FC = () => {
                 </button>
                 <div className="slides">
                     {currentCards?.map((item, index) => (
-                        <div key={index} className="slide">
+                        <div key={item.id} className="slide">
                             <MenuCard
                                 theme="light"
                                 dish={item}
