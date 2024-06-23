@@ -1,9 +1,8 @@
   .delivery-container {
     color:#ffffff;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1a1a1a;
+    padding: 100px;
+    background-color: #15161A;
+    height: 110vh;
   }
   
   .title {

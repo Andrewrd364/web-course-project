@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({currentButton}) => {
       </div>
       <div style={{ display: 'flex' }}>
       <CartButton/>
-      <Link  to={BOOK_TABLE_ROUTE}><button style={{fontWeight: 'bold', fontSize:'16px', }}>Booking now</button></Link >
+      <Link  to={BOOK_TABLE_ROUTE}><button style={{fontWeight: 'bold', fontSize:'16px', cursor:"pointer" }}>Booking now</button></Link >
       </div>
     </header>
   )
