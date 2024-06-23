@@ -35,10 +35,10 @@ const CheckoutFormPayment: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontFamily: 'Mukta-Regular', fontSize: '24px', marginBottom: '56px' }}>Card details</div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <TextInput mode="titleLeft" placeholder="0000 0000 0000 0000" label="Number" />
+                    <TextInput mode="titleLeft" placeholder="0000 0000 0000 0000" label="Number" onChangeValue={() => console.log()} />
                     <div style={{ display: 'flex', flexDirection: 'row', gap: '24px' }}>
-                        <TextInput mode="titleTop" placeholder="00/0000" label="Expiration" />
-                        <TextInput mode="titleTop" placeholder="000" label="CVV" />
+                        <TextInput mode="titleTop" placeholder="00/0000" label="Expiration" onChangeValue={() => console.log()} />
+                        <TextInput mode="titleTop" placeholder="000" label="CVV" onChangeValue={() => console.log()} />
                     </div>
                 </div>
             </div>

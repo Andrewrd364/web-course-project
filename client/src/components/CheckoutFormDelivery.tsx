@@ -35,8 +35,8 @@ const CheckoutFormDelivery: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontFamily: 'Mukta-Regular', fontSize: '24px', marginBottom: '56px' }}>Shipping address</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                    <TextInput mode="titleLeft" placeholder="Delivery city" label="City" />
-                    <TextInput mode="titleLeft" placeholder="Delivery street" label="Street" />
+                    <TextInput mode="titleLeft" placeholder="Delivery city" label="City" onChangeValue={() => console.log()} />
+                    <TextInput mode="titleLeft" placeholder="Delivery street" label="Street" onChangeValue={() => console.log()} />
                 </div>
             </div>
         </div>
