@@ -3,20 +3,18 @@ import basket from "../assets/basket.svg";
 import "./CartButton.css";
 import { Link } from "react-router-dom";
 import { CART_ROUTE } from "../routing/routesConsts";
+import { useAppSelector } from "../hooks/redux";
 
 const CartButton: React.FC = () => {
-    const [cartItemCount, setCartItemCount] = useState(12); // Стейт для количества товаров в корзине
-
-    // Функция для увеличения количества товаров в корзине (пример)
-    const incrementCartItemCount = () => {
-        setCartItemCount(prevCount => prevCount + 1);
-    };
+    const quantityDishesInCart = useAppSelector(
+        (state) => state.cartReducer.quantityDishesInCart
+    );
 
     return (
         <Link to={CART_ROUTE} className="cart-button">
             <img src={basket} alt="Корзина" />
-            {cartItemCount > 0 && (
-                <div className="cart-count">{cartItemCount}</div>
+            {quantityDishesInCart > 0 && (
+                <div className="cart-count">{quantityDishesInCart}</div>
             )}
         </Link>
     );

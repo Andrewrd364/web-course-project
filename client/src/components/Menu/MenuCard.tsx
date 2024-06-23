@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import info from "..//../assets/info.svg";
-import deleteIcon from "..//../assets/delete.png";
 import "./MenuCard.css";
 import { IDish } from "../../models/IDish";
 import Counter from "../UI/Counter";
 import { cartStorage } from "../../services/CartService";
 import RectangularButton from "../UI/RectangularButton";
 import DishPopover from "./DishPopover";
+import SkeletonImage from "../UI/SkeletonImage";
+import Skeleton from "../UI/Skeleton";
+import { useAppDispatch } from "../../hooks/redux";
+import { CartSlice } from "../../store/reducers/CartSlice";
 
 interface MenuCardProps {
     theme: "dark" | "light";
@@ -15,6 +17,7 @@ interface MenuCardProps {
 }
 
 const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName, theme }) => {
+    const dispatch = useAppDispatch();
     const initialQuantity = cartStorage.getCartItem(dish.id)?.quantity;
 
     const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
@@ -28,10 +31,12 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName, theme }) => {
         setIsPopupOpen(false);
     };
     const setCartItem = (value: number = 1) => {
-        //TODO испрвить добавление в корзину, чтобы не приходилось удалять
+        //TODO исправить добавление в корзину, чтобы не приходилось удалять
         cartStorage.removeFromCart(dish.id);
         cartStorage.addToCart({ dishId: dish.id, quantity: value });
+        dispatch(CartSlice.actions.setQuantity(cartStorage.getTotalQuantity()));
         setShowCounter(value > 0);
+        CartSlice;
     };
 
     return (
@@ -43,7 +48,25 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName, theme }) => {
                 closePopup={closePopup}
             />
             <div className="card-hover-effect" onClick={openPopup}>
-                <img src={dish.imageUrl} alt="" />
+                <SkeletonImage
+                    src={dish.imageUrl}
+                    alt="Фото блюда"
+                    // imageStyle={{ width: "580px" }}
+                    skeleton={
+                        <Skeleton
+                            style={{
+                                zIndex: "10",
+                                background: "gray",
+                                width: "175px", // Замените на нужную вам ширину
+                                height: "175px", // Замените на нужную вам высоту
+                                borderRadius: "50%", // Делает элемент круглым
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        />
+                    }
+                />
                 <div
                     style={{
                         width: "250px",

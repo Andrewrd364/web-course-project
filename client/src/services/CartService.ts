@@ -48,30 +48,37 @@ interface CartServices {
      */
     decreaseQuantity(dishId: string): void;
 
-        /**
+    /**
      * Получить элемент корзины.
      * Если товара нет в корзине, будет возвращен 0.
      * @param dishId Идентификатор товара, который нужно получить.
      */
     getCartItem(dishId: string): ICartItem;
-}
 
+    /**
+     * Получить количество всех товаров, имеющихся в корзине.
+     * Если товаров нет в корзине, будет возвращен 0.
+     */
+    getTotalQuantity(): number
+}
 
 // Реализация интерфейса CartStorage с использованием localStorage
 export const cartStorage: CartServices = {
     getCart() {
-        const cartJson = localStorage.getItem('cart');
+        const cartJson = localStorage.getItem("cart");
         return cartJson ? JSON.parse(cartJson) : {};
     },
     setCart(items) {
-        localStorage.setItem('cart', JSON.stringify(items));
+        localStorage.setItem("cart", JSON.stringify(items));
     },
     clearCart() {
-        localStorage.removeItem('cart');
+        localStorage.removeItem("cart");
     },
     addToCart(item) {
         const cart = this.getCart();
-        const newQuantity = cart[item.dishId] ? cart[item.dishId] + item.quantity : item.quantity;
+        const newQuantity = cart[item.dishId]
+            ? cart[item.dishId] + item.quantity
+            : item.quantity;
         cart[item.dishId] = newQuantity;
         this.setCart(cart);
     },
@@ -98,7 +105,11 @@ export const cartStorage: CartServices = {
     getCartItem(dishId) {
         const cart = this.getCart();
         const quantity = cart[dishId] || 0; // Если cart[dishId] не существует, вернет 0
-        return {quantity: quantity, dishId: dishId};
+        return { quantity: quantity, dishId: dishId };
+    },
+
+    getTotalQuantity() {
+        const cart = this.getCart();
+        return Object.values(cart).reduce((total, quantity) => total + quantity, 0);
     }
-    
 };
