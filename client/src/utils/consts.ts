@@ -4,14 +4,15 @@ export const API_URL = `http://localhost:5077/api`;
 export const ControllerUrls = {
     DISHES: "/dishes",
     CATEGORIES: "/categories",
+    BOOKING_TABLE: "/booking-table",
 };
 
 // Отдельные роуты для методов
 export const APIEndpoints = {
     DISHES: {
-        GET: "/get"
+        GET: "/get",
     },
     CATEGORIES: {
-        GET: "/get"
-    }
+        GET: "/get",
+    },
 };
