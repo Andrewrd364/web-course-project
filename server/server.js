@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import { setupSwagger, openSwaggerPage } from './swaggerConfig.js'
+import { setupSwagger } from './swaggerConfig.js'
 import router from "./routes/index.js"
 
 const DB_URL = 'mongodb+srv://andrewrd0364:visagemain0364@cluster0.b5tzfiz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
