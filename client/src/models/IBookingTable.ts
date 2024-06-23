@@ -4,6 +4,6 @@ export interface IBookingTable {
     customer: {
         name: string;
         phoneNumber: string;
-        email: string;
+        // email: string;
     };
 } 

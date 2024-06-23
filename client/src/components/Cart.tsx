@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
     const numberOfCarts = useAppSelector(
         (state) => state.cartReducer.quantityDishesInCart
     );
-    console.log("numberOfCarts: ", numberOfCarts);
+
 
     const [cartItems, setCartItems] = useState<ICartItem[]>([]);
     const [totalAmount, setTotalAmount] = useState<number>(0);
@@ -74,10 +74,6 @@ const Cart: React.FC = () => {
         const total = selectedDishes.reduce((sum, item) => {
             return sum + item.price * item.quantity;
         }, 0);
-        console.log("selectedDishes: ", selectedDishes);
-
-        console.log("useEffect");
-        console.log("total: ", total);
         setTotalAmount(total);
     });
 
@@ -109,18 +105,6 @@ const Cart: React.FC = () => {
                     flexDirection: "column",
                 }}
             >
-                {/* <RectangularButton
-                    text="Take all"
-                    theme="dark"
-                    onClick={() => console.log()}
-                    style={{
-                        width: "132px",
-                        height: "54px",
-                        fontSize: "16px",
-                        fontFamily: "Mukta-Bold",
-                        alignSelf: "flex-end",
-                    }}
-                /> */}
                 {selectedDishes.map((item) => (
                     <CartCard
                         deleteCartItem={() => deleteCartItem(item.id)}
