@@ -22,6 +22,7 @@ li a {
 }
 
 .container {
+    user-select: none;
     position: fixed;
     width: 100%;
     z-index: 1000;

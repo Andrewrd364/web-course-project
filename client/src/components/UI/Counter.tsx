@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import "./Counter.css";
 
 interface CounterProps {
@@ -6,6 +6,7 @@ interface CounterProps {
     onChangeCounter(value: number): void;
     maxValue?: number;
     minValue?: number;
+    style?: CSSProperties;
 }
 
 const Counter: React.FC<CounterProps> = ({
@@ -13,6 +14,7 @@ const Counter: React.FC<CounterProps> = ({
     maxValue = 100,
     minValue = 0,
     onChangeCounter,
+    style,
 }) => {
     const [countDose, setCountDose] = useState(initialValue);
 
@@ -31,7 +33,11 @@ const Counter: React.FC<CounterProps> = ({
     };
 
     return (
-        <div className="counter" onClick={(e) => e.stopPropagation()}>
+        <div
+            style={style}
+            className="counter"
+            onClick={(e) => e.stopPropagation()}
+        >
             <button
                 className="counter-button"
                 disabled={countDose <= minValue}
@@ -52,4 +58,3 @@ const Counter: React.FC<CounterProps> = ({
 };
 
 export default Counter;
-
