@@ -15,4 +15,7 @@ export const APIEndpoints = {
     CATEGORIES: {
         GET: "/get",
     },
+    BOOKING_TABLE: {
+        POST: "/book-table",
+    },
 };
