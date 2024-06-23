@@ -6,8 +6,12 @@ import { ICartItem } from '../models/ICartItem';
 import { cartStorage } from '../services/CartService';
 import { useAppSelector } from '../hooks/redux';
 import { IDish } from '../models/IDish';
+import { useNavigate } from 'react-router-dom';
+import { CHECKOUT_ROUTE } from '../routing/routesConsts';
 
 const Cart: React.FC = () => {
+  const navigate = useNavigate();
+
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
   const [totalAmount, setTotalAmount] = useState<number>(0);
   const dishes = useAppSelector((state) => state.dishesReducer.dishes);
@@ -69,7 +73,7 @@ const Cart: React.FC = () => {
           <div style={{ fontSize: '36px', fontFamily: 'Mukta-Medium' }}>Total amount:</div>
           <div style={{ fontSize: '36px', fontFamily: 'Mukta-Medium' }}>{totalAmount.toFixed(2)} $</div>
         </div>
-        <RectangularButton text='Checkout' theme='red' onClick={() => console.log()} style={{ width: '198px', height: '75px', fontSize: '24px', fontFamily: 'Mukta-Bold' }} />
+        <RectangularButton text='Checkout' theme='red' onClick={() => navigate(CHECKOUT_ROUTE)} style={{ width: '198px', height: '75px', fontSize: '24px', fontFamily: 'Mukta-Bold' }} />
       </div>
     </div>
   )

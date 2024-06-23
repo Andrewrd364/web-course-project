@@ -1,0 +1,84 @@
+/* styles.css */
+
+/* Styles for the main container */
+.containerSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    width: 100%;
+  }
+  
+  /* Styles for the summary section */
+  .summary {
+    width: 80%;
+  }
+  
+  .summary-title {
+    font-family: 'Mukta-Medium';
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+  
+  .summary-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .details-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .details-column div {
+    font-family: 'Mukta-Regular';
+    font-size: 24px;
+    color: gray;
+    margin-bottom: 8px;
+  }
+  
+  .details-column .total-amount {
+    font-family: 'Mukta-Regular';
+    font-size: 24px;
+    color: black;
+    margin-bottom: 8px;
+  }
+  
+  /* Styles for the total summary section */
+  .total-summary {
+    font-family: 'Mukta-Medium';
+    font-size: 36px;
+    margin-bottom: 56px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+  
+  .total-summary div {
+    /* No specific styling needed here as it inherits most properties */
+  
+  }
+  
+  .total-summary .total-amount {
+    font-family: 'Mukta-Regular';
+    font-size: 24px;
+    color: black;
+    margin-bottom: 8px;
+  }
+  
+  /* Styles for the button */
+  .button {
+    font-family: 'Mukta-Bold';
+    font-size: 24px;
+    width: 198px;
+    height: 75px;
+  }
+  
+  .button-red {
+    background-color: red;
+    color: white;
+    /* Add any other necessary styles for the red button */
+  }

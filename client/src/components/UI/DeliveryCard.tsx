@@ -6,13 +6,14 @@ interface DeliveryCardProps {
     timeRange: string;
     isHighlighted: boolean;
     icon: string;
+    theme: 'dark' | 'light';
 }
 
-const DeliveryCard: React.FC<DeliveryCardProps> = ({ title, discount, timeRange, isHighlighted, icon }) => {
+const DeliveryCard: React.FC<DeliveryCardProps> = ({ title, discount, timeRange, isHighlighted, icon, theme }) => {
 
 
     return (
-        <div className={`menu-item ${isHighlighted ? 'highlighted' : ''}`}>
+        <div className={`menu-item ${isHighlighted ? 'highlighted' : ''} ${theme === 'dark' ? 'dark' : 'light'}`}>
             <div>
                 <h2>{title}</h2>
                 <p>Salle <span className="highlight">{discount}%</span> for the order from {timeRange}</p>
