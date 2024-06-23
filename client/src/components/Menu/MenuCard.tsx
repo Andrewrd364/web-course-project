@@ -36,7 +36,6 @@ const MenuCard: React.FC<MenuCardProps> = ({ dish, categoryName, theme }) => {
         cartStorage.addToCart({ dishId: dish.id, quantity: value });
         dispatch(CartSlice.actions.setQuantity(cartStorage.getTotalQuantity()));
         setShowCounter(value > 0);
-        CartSlice;
     };
 
     return (
