@@ -27,7 +27,6 @@ const OurDishesCard: React.FC<OurDishesCardProps> = ({ dish, mode }) => {
         cartStorage.addToCart({ dishId: dish.id, quantity: value });
         dispatch(CartSlice.actions.setQuantity(cartStorage.getTotalQuantity()));
         setShowCounter(value > 0);
-        CartSlice;
     };
 
     return (
