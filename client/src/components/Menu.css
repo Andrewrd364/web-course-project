@@ -98,16 +98,37 @@
   background-color: gray;
   border-radius: 200px;
 }
-.prev,
+/* .prev,
 .next {
   top: 50%;
   transform: translateY(-50%);
   border: none;
   cursor: pointer;
+} */
+.prev{
+  left:200px;
 }
-
+.next{
+  right:200px;
+}
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+/* .prev img,
+.next img {
+  width: 40px;
+  height: 40px;
+} */
 .prev img,
 .next img {
   width: 40px;
   height: 40px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }

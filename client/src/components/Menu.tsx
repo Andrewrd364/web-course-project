@@ -75,13 +75,33 @@ const Menu: React.FC = () => {
                 style={{ position: "absolute", width: "100%", zIndex: -1 }}
             />
             <h1 className="headline">menu</h1>
-            <input
+            <div
+                style={{
+                    userSelect: "none",
+                    background: "white",
+                    display: "flex",
+                    alignItems: "center",
+                    border: `2px solid gray`,
+                    borderRadius: "10px",
+                    padding: "10px",
+                    marginBottom: "32px",
+                }}
+            >
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    style={{ border: "none", outline: "none" }}
+                />
+            </div>
+            {/* <input
                 type="text"
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="search-input"
-            />
+            /> */}
             <div className="carousel">
                 <button
                     className="prev"

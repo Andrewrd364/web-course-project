@@ -14,7 +14,7 @@ export const isValidEmail = (email: string): boolean => {
 
 // Функция для проверки валидности номера телефона
 export const isPhoneNumberValid = (phoneNumber: string): boolean => {
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^\d{11}$/;
     return phoneRegex.test(phoneNumber);
 };
 
