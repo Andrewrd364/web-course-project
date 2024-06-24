@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header";
-import Cart from "../Cart";
+import Cart from "../Cart/Cart";
 import Footer from "../Footer";
 
 const CartPage: React.FC = () => {
@@ -9,7 +9,7 @@ const CartPage: React.FC = () => {
             <Header />
             <Cart />
             <Footer />
-        </> 
+        </>
     );
 };
 

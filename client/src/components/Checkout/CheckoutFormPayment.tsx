@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TextInput from "./UI/TextInput";
+import TextInput from "../UI/TextInput";
 
 
 const CheckoutFormPayment: React.FC = () => {

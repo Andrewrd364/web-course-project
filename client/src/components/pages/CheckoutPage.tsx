@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../Header";
-import Cart from "../Cart";
 import Footer from "../Footer";
-import Checkout from "../Checkout";
+import Checkout from "../Checkout/Checkout";
 
 const CheckoutPage: React.FC = () => {
     return (

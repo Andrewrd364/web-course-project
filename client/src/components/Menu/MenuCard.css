@@ -40,6 +40,7 @@
     cursor:pointer; 
     display:flex;
     z-index:2001;
+    user-select: none;
 }
 .infoBut {
     position:absolute; 
@@ -47,6 +48,7 @@
     left:50px; 
     cursor:pointer; 
     display:flex;
+    user-select: none;
 }
 .addition {
     padding:20px; 
@@ -74,6 +76,7 @@
     justify-content: center;
     cursor: pointer;
     font-family: 'Mukta-Bold';
+    user-select: none;
 }
 
 .category-dish {

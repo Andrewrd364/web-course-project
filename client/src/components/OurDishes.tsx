@@ -60,7 +60,8 @@ const OurDishes: React.FC = () => {
                         marginTop: "-80px",
                         fontSize: "24px",
                         cursor: "pointer",
-                        alignSelf: "flex-end"
+                        alignSelf: "flex-end",
+                        userSelect: 'none'
                     }}
                     text="More"
                     theme="red"

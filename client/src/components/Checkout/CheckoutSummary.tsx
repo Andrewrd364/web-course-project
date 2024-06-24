@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import breakfastIcon from '../assets/deliveryIcon1.svg';
-import lunchIcon from '../assets/deliveryIcon2.svg';
-import dinnerIcon from '../assets/deliveryIcon3.svg';
-import DeliveryCard from "./UI/DeliveryCard";
-import RectangularButton from "./UI/RectangularButton";
+import breakfastIcon from '../../assets/deliveryIcon1.svg';
+import lunchIcon from '../../assets/deliveryIcon2.svg';
+import dinnerIcon from '../../assets/deliveryIcon3.svg';
+import DeliveryCard from "../UI/DeliveryCard";
+import RectangularButton from "../UI/RectangularButton";
 import './CheckoutSummary.css';
-import { useAppSelector } from "../hooks/redux";
-import { ICartItem } from "../models/ICartItem";
-import { IDish } from "../models/IDish";
-import { cartStorage } from "../services/CartService";
+import { useAppSelector } from "../../hooks/redux";
+import { ICartItem } from "../../models/ICartItem";
+import { IDish } from "../../models/IDish";
+import { cartStorage } from "../../services/CartService";
 interface CheckoutSummaryProps {
     handleCheckout: () => void;
 }

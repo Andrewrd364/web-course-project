@@ -1,9 +1,8 @@
 import React from "react";
-import CheckoutFormContacts from "./CheckoutFormContacts";
-import CheckoutFormDelivery from "./CheckoutFormDelivery";
-import CheckoutFormPayment from "./CheckoutFormPayment";
-import CheckoutSummary from "./CheckoutSummary";
-import curve from '../assets/curve5.svg';
+import CheckoutFormContacts from "../Checkout/CheckoutFormContacts";
+import CheckoutFormDelivery from "../Checkout/CheckoutFormDelivery";
+import CheckoutSummary from "../Checkout/CheckoutSummary";
+import curve from '../../assets/curve5.svg';
 
 
 const Checkout: React.FC = () => {

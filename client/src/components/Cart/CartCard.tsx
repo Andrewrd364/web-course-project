@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./Header.css";
-import { IDish } from "../models/IDish";
-import Counter from "./UI/Counter";
+import "../Header.css";
+import { IDish } from "../../models/IDish";
+import Counter from "../UI/Counter";
 import "./CartCard.css";
-import { cartStorage } from "../services/CartService";
-import { CartSlice } from "../store/reducers/CartSlice";
-import { useAppDispatch } from "../hooks/redux";
+import { cartStorage } from "../../services/CartService";
+import { CartSlice } from "../../store/reducers/CartSlice";
+import { useAppDispatch } from "../../hooks/redux";
 
 interface CartCardProps {
     dish: IDish;
