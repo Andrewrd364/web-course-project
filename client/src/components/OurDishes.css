@@ -14,6 +14,7 @@
     border: none;
     cursor: pointer;
     margin-left: 0px;
+    user-select: none;
 }
 
 
@@ -72,4 +73,5 @@
     cursor: pointer;
     margin-top: -80px;
     align-self: flex-end;
+    user-select: none;
 }

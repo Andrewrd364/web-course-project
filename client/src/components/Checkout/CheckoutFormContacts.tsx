@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TextInput from "./UI/TextInput";
-import { isPhoneNumberValid, isValidEmail } from "../utils/inputValidation";
+import TextInput from "../UI/TextInput";
+import { isPhoneNumberValid, isValidEmail } from "../../utils/inputValidation";
 
 interface FormErrors {
     name: boolean;

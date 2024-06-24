@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./Header.css";
-import CartCard from "./CartCard";
-import RectangularButton from "./UI/RectangularButton";
-import { ICartItem } from "../models/ICartItem";
-import { cartStorage } from "../services/CartService";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { IDish } from "../models/IDish";
-import { CartSlice } from "../store/reducers/CartSlice";
-import { fetchDishes } from "../store/reducers/DishesSlice";
+import "../Header.css";
+import CartCard from "../Cart/CartCard";
+import RectangularButton from "../UI/RectangularButton";
+import { ICartItem } from "../../models/ICartItem";
+import { cartStorage } from "../../services/CartService";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { IDish } from "../../models/IDish";
+import { CartSlice } from "../../store/reducers/CartSlice";
+import { fetchDishes } from "../../store/reducers/DishesSlice";
 import { useNavigate } from "react-router-dom";
-import { CHECKOUT_ROUTE } from "../routing/routesConsts";
+import { CHECKOUT_ROUTE } from "../../routing/routesConsts";
 
 const Cart: React.FC = () => {
     const navigate = useNavigate();

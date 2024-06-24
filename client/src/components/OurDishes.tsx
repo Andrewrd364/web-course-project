@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import curve from "../assets/curve2.svg";
 import "./OurDishes.css";
-import OurDishesCard from "./UI/OurDishesCard";
+import OurDishesCard from "./OurDishesCard";
 import { IDish } from "../models/IDish";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchDishes } from "../store/reducers/DishesSlice";
@@ -60,7 +60,8 @@ const OurDishes: React.FC = () => {
                         marginTop: "-80px",
                         fontSize: "24px",
                         cursor: "pointer",
-                        alignSelf: "flex-end"
+                        alignSelf: "flex-end",
+                        userSelect: 'none'
                     }}
                     text="More"
                     theme="red"

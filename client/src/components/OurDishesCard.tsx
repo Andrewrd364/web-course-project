@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "../OurDishes.css";
-import { IDish } from "../../models/IDish";
-import SkeletonImage from "./SkeletonImage";
-import Skeleton from "./Skeleton";
-import { useAppDispatch } from "../../hooks/redux";
-import { cartStorage } from "../../services/CartService";
-import Counter from "./Counter";
-import RectangularButton from "./RectangularButton";
-import { CartSlice } from "../../store/reducers/CartSlice";
+import "./OurDishes.css";
+import { IDish } from "../models/IDish";
+import SkeletonImage from "./UI/SkeletonImage";
+import Skeleton from "./UI/Skeleton";
+import { useAppDispatch } from "../hooks/redux";
+import { cartStorage } from "../services/CartService";
+import Counter from "./UI/Counter";
+import RectangularButton from "./UI/RectangularButton";
+import { CartSlice } from "../store/reducers/CartSlice";
 
 interface OurDishesCardProps {
     dish: IDish;

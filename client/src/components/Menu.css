@@ -42,6 +42,7 @@
   font-family: 'Mukta-Bold';
   font-size: 16px;
   cursor: pointer;
+  user-select: none;
 }
 
 .carousel {
@@ -106,10 +107,10 @@
   cursor: pointer;
 } */
 .prev{
-  left:200px;
+  left:5%;
 }
 .next{
-  right:200px;
+  right:5%;
 }
 .prev,
 .next {
@@ -119,6 +120,7 @@
   border: none;
   cursor: pointer;
   background: none;
+  user-select: none;
 }
 /* .prev img,
 .next img {
