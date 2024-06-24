@@ -6,6 +6,7 @@ import combineDateTime, {
     parseAndValidateDate,
     isTimeValid,
     isInteger,
+    isValidEmail,
 } from "../utils/inputValidation";
 import { IBookingTable } from "../models/IBookingTable";
 import BookingTableService from "../services/BookingTableService";
@@ -15,6 +16,7 @@ interface FormErrors {
     phone: boolean;
     date: boolean;
     time: boolean;
+    email: boolean;
     guests: boolean;
 }
 
@@ -23,6 +25,7 @@ const initialFormErrors: FormErrors = {
     phone: false,
     date: false,
     time: false,
+    email: false,
     guests: false,
 };
 
@@ -32,6 +35,7 @@ const BookTableForm: React.FC = () => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [guests, setGuests] = useState("");
+    const [email, setEmail] = useState("");
     const [checked, setChecked] = useState(false);
     const [formErrors, setFormErrors] = useState<FormErrors>(initialFormErrors);
 
@@ -46,6 +50,7 @@ const BookTableForm: React.FC = () => {
             date: !parseAndValidateDate(date),
             time: !isTimeValid(time),
             guests: !isInteger(guests) || parseInt(guests, 10) <= 0,
+            email: !isValidEmail(email),
         };
 
         setFormErrors(errors);
@@ -103,6 +108,13 @@ const BookTableForm: React.FC = () => {
                     mode="titleLeft"
                     onChangeValue={(value: string) => setPhone(value)}
                     useErrorStyle={formErrors.phone}
+                />
+                <TextInput
+                    placeholder="Your email"
+                    label="Email"
+                    mode="titleLeft"
+                    onChangeValue={(value: string) => setEmail(value)}
+                    useErrorStyle={formErrors.email}
                 />
                 <div
                     style={{

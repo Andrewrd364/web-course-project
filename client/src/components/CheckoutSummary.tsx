@@ -9,9 +9,11 @@ import { useAppSelector } from "../hooks/redux";
 import { ICartItem } from "../models/ICartItem";
 import { IDish } from "../models/IDish";
 import { cartStorage } from "../services/CartService";
+interface CheckoutSummaryProps {
+    handleCheckout: () => void;
+}
 
-
-const CheckoutSummary: React.FC = () => {
+const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({ handleCheckout }) => {
     const dishes = useAppSelector((state) => state.dishesReducer.dishes);
     const numberOfCarts = useAppSelector(
         (state) => state.cartReducer.quantityDishesInCart
@@ -111,7 +113,7 @@ const CheckoutSummary: React.FC = () => {
                     <div>Total</div>
                     <div >{totalAmount}$</div>
                 </div>
-                <RectangularButton text="Pay now" theme="red" onClick={() => console.log()} style={{ fontFamily: 'Mukta-Bold', fontSize: '24px', width: '198px', height: '75px' }} />
+                <RectangularButton text="Pay now" theme="red" onClick={handleCheckout} style={{ fontFamily: 'Mukta-Bold', fontSize: '24px', width: '198px', height: '75px' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: "column", width: '75%' }}>
                 <DeliveryCard

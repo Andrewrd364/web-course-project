@@ -7,6 +7,10 @@ import curve from '../assets/curve5.svg';
 
 
 const Checkout: React.FC = () => {
+    const handleCheckout = () => {
+        console.log("Handle checkout logic in Checkout component");
+        // Ваша логика проверки или другие действия при нажатии кнопки
+    };
     return (
         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: "150px", flexDirection: 'column', alignItems: 'center', marginBottom: '100px' }}>
             <img src={curve} alt="" style={{ position: 'absolute', zIndex: -1, right: '0' }} />
@@ -15,7 +19,7 @@ const Checkout: React.FC = () => {
                 <CheckoutFormContacts />
                 <CheckoutFormDelivery />
                 {/* <CheckoutFormPayment /> */}
-                <CheckoutSummary />
+                <CheckoutSummary handleCheckout={handleCheckout} />
             </div>
         </div>
 
