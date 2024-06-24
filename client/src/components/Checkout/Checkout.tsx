@@ -17,7 +17,6 @@ const Checkout: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '96px' }}>
                 <CheckoutFormContacts />
                 <CheckoutFormDelivery />
-                {/* <CheckoutFormPayment /> */}
                 <CheckoutSummary handleCheckout={handleCheckout} />
             </div>
         </div>

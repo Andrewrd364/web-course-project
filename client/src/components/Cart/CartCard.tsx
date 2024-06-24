@@ -29,6 +29,7 @@ const CartCard: React.FC<CartCardProps> = ({ dish, quantity, deleteCartItem }) =
     return (
         <div
             style={{
+                userSelect: "none",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",

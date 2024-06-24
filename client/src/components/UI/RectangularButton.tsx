@@ -1,5 +1,4 @@
-import React, { CSSProperties, MouseEvent } from "react";
-import { Property } from "csstype";
+import React, { CSSProperties } from "react";
 import "./RectangularButton.css";
 
 interface RectangularButtonProps {
@@ -7,16 +6,19 @@ interface RectangularButtonProps {
     theme: "red" | "dark";
     onClick(e: React.MouseEvent): void;
     style?: CSSProperties;
+    disabled?: boolean
 }
 
 const RectangularButton: React.FC<RectangularButtonProps> = ({
     theme,
     onClick,
     text,
-    style
+    style,
+    disabled
 }) => {
     return (
         <button
+            disabled={disabled}
             className={`rectangular-button ${theme}`}
             onClick={onClick}
             // title="Menu"
