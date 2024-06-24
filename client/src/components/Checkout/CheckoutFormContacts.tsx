@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useImperativeHandle, useState, forwardRef } from "react";
 import TextInput from "../UI/TextInput";
 import { isPhoneNumberValid, isValidEmail } from "../../utils/inputValidation";
 
@@ -16,29 +16,39 @@ const initialFormErrors: FormErrors = {
     email: false,
 };
 
-const CheckoutFormContacts: React.FC = () => {
+type Form1Handle = {
+    validateForm1: () => boolean;
+    getForm1Data: () => {
+        name: string;
+        surname: string;
+        phone: string;
+        email: string;
+    };
+};
+
+const CheckoutFormContacts = forwardRef<Form1Handle>((props, ref) => {
+    const [contactsData, setContactsData] = useState({});
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [formErrors, setFormErrors] = useState<FormErrors>(initialFormErrors);
 
-    const handleBooking = () => {
-        const errors: FormErrors = {
-            name: name === "",
-            surname: surname === "",
-            phone: !isPhoneNumberValid(phone),
-            email: !isValidEmail(email),
-        };
+    useImperativeHandle(ref, () => ({
+        validateForm1: () => {
+            const errors: FormErrors = {
+                name: name === "",
+                surname: surname === "",
+                phone: !isPhoneNumberValid(phone),
+                email: !isValidEmail(email),
+            };
 
-        setFormErrors(errors);
+            setFormErrors(errors);
 
-        // Проверка наличия ошибок
-        if (Object.values(errors).some((error) => error)) {
-            return;
-        }
-
-    };
+            return !Object.values(errors).some((error) => error);
+        },
+        getForm1Data: () => ({ name, surname, phone, email }),
+    }));
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -60,8 +70,7 @@ const CheckoutFormContacts: React.FC = () => {
                     useErrorStyle={formErrors.email} />
             </div>
         </div>
-
     );
-};
+});
 
 export default CheckoutFormContacts;

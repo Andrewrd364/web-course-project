@@ -10,9 +10,8 @@ import { ICartItem } from "../../models/ICartItem";
 import { IDish } from "../../models/IDish";
 import { cartStorage } from "../../services/CartService";
 interface CheckoutSummaryProps {
-    handleCheckout: () => void;
+    handleCheckout: () => boolean;
 }
-
 const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({ handleCheckout }) => {
     const dishes = useAppSelector((state) => state.dishesReducer.dishes);
     const numberOfCarts = useAppSelector(
@@ -90,7 +89,16 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({ handleCheckout }) => 
     }, [currentHour]);
     useEffect(() => {
         setTotalAmount(amount - salle);
-    }, [salle, amount])
+    }, [salle, amount]);
+    const handleClick = () => {
+        const isValid = handleCheckout();
+        if (isValid) {
+            console.log('Both forms are valid and the checkout can proceed.');
+        } else {
+            console.log('One or both forms are invalid.');
+        }
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '160px' }}>
             <div className="containerSummary">
@@ -113,7 +121,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({ handleCheckout }) => 
                     <div>Total</div>
                     <div >{totalAmount}$</div>
                 </div>
-                <RectangularButton text="Pay now" theme="red" onClick={handleCheckout} style={{ fontFamily: 'Mukta-Bold', fontSize: '24px', width: '198px', height: '75px' }} />
+                <RectangularButton text="Pay now" theme="red" onClick={handleClick} style={{ fontFamily: 'Mukta-Bold', fontSize: '24px', width: '198px', height: '75px' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: "column", width: '75%' }}>
                 <DeliveryCard
