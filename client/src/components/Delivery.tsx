@@ -1,6 +1,6 @@
 import React from 'react';
 import './Delivery.css';
-import DeliveryCard from './UI/DeliveryCard';
+import DeliveryCard from './DeliveryCard';
 import imgDelivery from '../assets/deliveryImg.png';
 import breakfastIcon from '../assets/deliveryIcon1.svg';
 import lunchIcon from '../assets/deliveryIcon2.svg';
