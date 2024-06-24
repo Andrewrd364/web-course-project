@@ -13,7 +13,7 @@ const DeliveryCard: React.FC<DeliveryCardProps> = ({ title, discount, timeRange,
 
 
     return (
-        <div className={`menu-item ${isHighlighted ? 'highlighted' : ''} ${theme === 'dark' ? 'dark' : 'light'}`}>
+        <div className={`menu-item ${isHighlighted ? 'highlighted' : ''} ${theme === 'dark' ? 'dark' : 'light'}`} style={{userSelect: "none"}}>
             <div>
                 <h2>{title}</h2>
                 <p>Salle <span className="highlight">{discount}%</span> for the order from {timeRange}</p>
