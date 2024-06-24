@@ -12,7 +12,6 @@ const TextInput: React.FC<TextInputProps> = ({
     label,
     placeholder,
     mode,
-    useErrorStyle: style,
     useErrorStyle,
     onChangeValue,
 }) => {

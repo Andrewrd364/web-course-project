@@ -90,6 +90,7 @@ const Cart: React.FC = () => {
         >
             <div
                 style={{
+                    userSelect: "none",
                     textTransform: "uppercase",
                     fontSize: "80px",
                     fontFamily: "Righteous-Regular",
@@ -144,12 +145,14 @@ const Cart: React.FC = () => {
                 <RectangularButton
                     text="Checkout"
                     theme="red"
+                    disabled={numberOfCarts <= 0}
                     onClick={() => navigate(CHECKOUT_ROUTE)}
                     style={{
                         width: "198px",
                         height: "75px",
                         fontSize: "24px",
                         fontFamily: "Mukta-Bold",
+                    
                     }}
                 />
             </div>
